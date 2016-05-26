@@ -4,7 +4,7 @@
 A Django 1.6+ project template
 
 Project on GetBarista: http://fortytwotesttask-200.ivanbabaiev.at.getbarista.com
-Repo on Github: https://github.com/ivanbabaiev/IB-FortyTwoTestTask.git
+Repo on Github: https://github.com/ivanbabaiev/FortyTwoTestTask.git
 
 Create Django Project task
 
