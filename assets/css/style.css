@@ -1,0 +1,9 @@
+.FortyTwo-logo {
+    text-align: center;
+}
+
+/* Отступ сверху для содержимого body */
+
+body {
+    padding-top: 20px;
+}

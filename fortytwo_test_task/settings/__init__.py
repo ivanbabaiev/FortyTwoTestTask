@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# flake8: noqa
+
 from .common import *
 try:
     from .local import *

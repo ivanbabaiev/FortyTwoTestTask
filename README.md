@@ -3,6 +3,16 @@
 
 A Django 1.6+ project template
 
+Project on GetBarista: http://fortytwotesttask-200.ivanbabaiev.at.getbarista.com
+Repo on Github: https://github.com/ivanbabaiev/IB-FortyTwoTestTask.git
+
+Create Django Project task
+
+ticket:1
+Branch - t1_contact:
+show your name, surname, bio, contacts on the main page
+Data should be stored in the DB.
+
 Use fortytwo_test_task.settings when deploying with getbarista.com
 
 ### Recomendations

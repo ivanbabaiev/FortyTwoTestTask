@@ -1,9 +1,53 @@
-from django.test import TestCase
+# -*- coding: utf-8 -*-
 
-# Create your tests here.
+from django.test import TestCase, Client
+
+from apps.hello.models import Person
 
 
-class SomeTests(TestCase):
-    def test_math(self):
-        "put docstrings in your tests"
-        assert(2 + 2 == 5)
+def create_person(st_name):
+    """
+    Create test Person
+    """
+    Person.objects.create(
+        name=st_name,
+        surname="Babaiev",
+        date_of_birth="1971-12-23",
+        other_contacts="https://ua.linkedin.com/in/ivanbabaiev",
+        bio="Web developer",
+        email="ivanbabaiev@gmail.com",
+        jabber="ib@jabber.no",
+        skype="ivan.babaiev",
+    )
+
+
+class IndexListTest(TestCase):
+    """
+    Add test for index page
+    """
+    def test_list_statuscode(self):
+        """
+        Test for status main page
+        """
+        create_person('')
+        client = Client()
+        response = client.get('/')
+        self.failUnlessEqual(response.status_code, 200)
+
+    def test_list_header(self):
+        """
+        Test for text on main page
+        """
+        create_person('')
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, '42 Coffee Cups Test Assignment')
+
+    def test_list_url_active(self):
+        """
+        Test on url active
+        """
+        create_person('')
+        client = Client()
+        response = client.get('/')
+        self.assertTemplateUsed(response, 'hello/index.html')

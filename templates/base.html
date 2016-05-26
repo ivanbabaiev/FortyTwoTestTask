@@ -1,22 +1,47 @@
 {% load staticfiles %}
+
+
 <!DOCTYPE html>
+
+
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title %}{% endblock title %}Site Name</title>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock title %}Main</title>
 
-        <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//getskeleton.com/dist/css/normalize.css">
+    <link rel="stylesheet" href="//getskeleton.com/dist/css/skeleton.css">
 
-        <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
 
-        <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        {% block extra_head %}{% endblock extra_head %}
+    {% block extra_head %}{% endblock extra_head %}
 
-    </head>
-    <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="jumbotron" style="background:rgba(255,255,255,0.4);">
         {% block content %}{% endblock content %}
-    </body>
+      </div>
+    </div>
+    <div class="FortyTwo-logo">
+      <h6>@ 2016 42CC</h6>
+    </div>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-1.12.2.min.js' %}"></script>
+    <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
+    <script>
+      {#fon for site#}
+      $.backstretch("{% static 'images/fon.jpg' %}");
+    </script>
+  </body>
 </html>

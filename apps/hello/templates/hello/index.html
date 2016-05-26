@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %}
+  <div class="container">
+    <div class="col-lg-12">
+      <h3 class="section-heading">42 Coffee Cups Test Assignment</h3>
+    </div>
+    <div class="row-fluid">
+      <div class="one-half column">
+        Name: {{ person.name }}<br>
+        Last Name: {{ person.surname }}<br>
+        Date of birth: { person.date_of_birth }}<br>
+        <br>Bio:<br>
+        {{ person.bio }}
+      </div>
+      <div class="one-half column">
+        Contacts<br>
+        Email: {{ person.email }}<br>
+        Jabber: {{ person.jabber }}<br>
+        Skype: {{ person.skype }}<br>
+        <br>Other contacts:<br>
+        {{ person.other_contacts }}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
