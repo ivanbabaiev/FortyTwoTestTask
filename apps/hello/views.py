@@ -8,5 +8,8 @@ from apps.hello.models import Person
 
 def person_list_view(request):
 
-    data = get_object_or_404(Person, pk=1)
-    return render_to_response('hello/index.html', {'person': data})
+    try:
+        data = get_object_or_404(Person, pk=1)
+        return render_to_response('hello/index.html', {'person': data})
+    except:
+        return render_to_response('404.html')
