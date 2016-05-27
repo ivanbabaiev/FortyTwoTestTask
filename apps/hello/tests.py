@@ -14,14 +14,14 @@ class IndexListTest(TestCase):
 
     def setUp(self):
         self.person_two = Person.objects.create(
-            name="Olla",
-            surname="LLL",
-            date_of_birth="1990-01-01",
-            other_contacts="qwerty qwerty qwerty",
-            bio="biography",
-            email="google@google.com",
-            jabber="xxx@jabber.org",
-            skype="qwerty",
+            name="Andy",
+            surname="Tucker",
+            date_of_birth="1907-08-01",
+            other_contacts="The Gentle Graftery",
+            bio="Jeff Peters as a Personal Magnet",
+            email="andy.tuker@gmail.com",
+            jabber="at@jabber.no",
+            skype="andy.tucker",
         )
 
     def test_list_statuscode(self):
