@@ -13,6 +13,7 @@ class IndexListTest(TestCase):
     fixtures = ['initial_data.json']
 
     def setUp(self):
+        self.person = Person.objects.first()
         self.person_two = Person.objects.create(
             name="Andy",
             surname="Tucker",
@@ -33,24 +34,16 @@ class IndexListTest(TestCase):
         self.assertContains(response, '42 Coffee Cups Test Assignment')
         self.assertTemplateUsed(response, 'hello/index.html')
 
-    def test_topic(self):
-        """
-        test 1 user in DB
-        """
-        response = Person.objects.get(pk=1)
-        self.assertEqual(response.surname, 'Babaiev')
-
-    def test_topic_1(self):
+    def test_none_user_in_db(self):
         """
         test none user in DB
         """
         Person.objects.all().delete()
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'The page you are looking'
-                                      ' for could not be found.')
+        self.assertContains(response, 'The database contains no records')
 
-    def test_2_user(self):
+    def test_2_user_in_db(self):
         """
         test 2 user in DB
         """
@@ -58,3 +51,18 @@ class IndexListTest(TestCase):
         response = self.client.get(reverse('home'))
         self.assertNotContains(response, self.person_two.name, status_code=200)
         self.assertNotContains(response, self.person_two.surname)
+
+
+class DbOneUserTest(TestCase):
+    """
+    test 1 user in DB
+    """
+    fixtures = ['initial_data.json']
+
+    def test_1_user_in_db(self):
+        """
+        test for 1 user
+        """
+        self.assertEqual(Person.objects.count(), 1)
+        response = self.client.get(reverse('home'))
+        self.assertEqual(response.status_code, 200)
