@@ -62,7 +62,12 @@ class DbOneUserTest(TestCase):
     def test_1_user_in_db(self):
         """
         test for 1 user
+        добавил проверку пользователя и того, что выводиться нужная страница
+        Отдельный класс оставил, т.к. либо с >1 пользователями отдельный класс
+        делать, либо с одним.
         """
         self.assertEqual(Person.objects.count(), 1)
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Babaiev')
+        self.assertContains(response, '42 Coffee Cups Test Assignment')
