@@ -54,7 +54,6 @@ class IndexListTest(TestCase):
             jabber="at@jabber.no",
             skype="andy.tucker",
         )
-
         self.assertEqual(Person.objects.count(), 2)
         response = self.client.get(reverse('home'))
         self.assertNotContains(response, self.person_two.name, status_code=200)
