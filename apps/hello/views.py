@@ -9,4 +9,3 @@ def person_list_view(request):
 
     person = Person.objects.first()
     return render_to_response('hello/index.html', {'person': person})
-    
