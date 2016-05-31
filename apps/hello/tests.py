@@ -4,6 +4,7 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 
 from apps.hello.models import Person
+from apps.hello.models import Request
 
 
 class IndexListTest(TestCase):
@@ -58,3 +59,25 @@ class IndexListTest(TestCase):
         response = self.client.get(reverse('home'))
         self.assertNotContains(response, self.person_two.name, status_code=200)
         self.assertNotContains(response, self.person_two.surname)
+
+
+class MiddlewareTest(TestCase):
+    """
+    Add test for requests page
+    """
+    def test_template_requests(self):
+        """
+        Test for template requests
+        """
+        response = self.client.get(reverse('requests'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_middleware_write(self):
+        """
+        Test middleware write
+        """
+        req = Request.objects.all()
+        self.assertEqual(req.count(), 0)
+        self.client.get(reverse('home'))
+        req = Request.objects.all()
+        self.assertEqual(req.count(), 1)

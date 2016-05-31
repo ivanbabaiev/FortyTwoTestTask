@@ -18,20 +18,20 @@
     {% if person %}
       <div class="row-fluid">
         <div class="one-half column">
-        Name: {{ person.name }}<br>
-        Last Name: {{ person.surname }}<br>
-        Date of birth: {{ person.date_of_birth }}<br>
-        <br>Bio:<br>
-        {{ person.bio }}
-      </div>
+          Name: {{ person.name }}<br>
+          Last Name: {{ person.surname }}<br>
+          Date of birth: {{ person.date_of_birth }}<br>
+          <br>Bio:<br>
+          {{ person.bio }}
+        </div>
         <div class="one-half column">
-        Contacts<br>
-        Email: {{ person.email }}<br>
-        Jabber: {{ person.jabber }}<br>
-        Skype: {{ person.skype }}<br>
-        <br>Other contacts:<br>
-        {{ person.other_contacts }}
-      </div>
+          Contacts<br>
+          Email: {{ person.email }}<br>
+          Jabber: {{ person.jabber }}<br>
+          Skype: {{ person.skype }}<br>
+          <br>Other contacts:<br>
+          {{ person.other_contacts }}
+        </div>
       </div>
     {% else %}
       <div style="text-align: center">
@@ -39,4 +39,8 @@
       </div>
     {% endif %}
   </div>
+  <hr/>
+  <a href="{% url 'requests' %}" target="_blank">
+  <button class="btn btn-success" type="button" style="background-color: #969275">
+  <span class="glyphicon glyphicon-list"></span> Requests</button></a>
 {% endblock content %}
