@@ -20,10 +20,27 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'hello', ['Request'])
 
+        # Adding model 'Person'
+        db.create_table(u'hello_person', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('surname', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('date_of_birth', self.gf('django.db.models.fields.DateField')()),
+            ('bio', self.gf('django.db.models.fields.TextField')()),
+            ('email', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('jabber', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('skype', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('other_contacts', self.gf('django.db.models.fields.TextField')()),
+        ))
+        db.send_create_signal(u'hello', ['Person'])
+
 
     def backwards(self, orm):
         # Deleting model 'Request'
         db.delete_table(u'hello_request')
+
+        # Deleting model 'Person'
+        db.delete_table(u'hello_person')
 
 
     models = {
