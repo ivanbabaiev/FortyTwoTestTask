@@ -14,7 +14,9 @@ class Migration(SchemaMigration):
     def backwards(self, orm):
         # Deleting model 'Person'
         pass
+
     models = {
+
     }
 
     complete_apps = ['hello']
