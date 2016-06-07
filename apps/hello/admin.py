@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Person
+from .models import Person, Request
 
 
 class AdminPersons(admin.ModelAdmin):
@@ -13,3 +13,4 @@ class AdminPersons(admin.ModelAdmin):
                     'jabber', 'skype', 'other_contacts',)
 
 admin.site.register(Person, AdminPersons)
+admin.site.register(Request)
