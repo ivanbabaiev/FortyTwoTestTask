@@ -8,21 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Request'
-        db.create_table(u'hello_request', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_time', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('path', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('server_protocol', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('request_method', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('status_code', self.gf('django.db.models.fields.IntegerField')(max_length=10)),
-        ))
-        db.send_create_signal(u'hello', ['Request'])
+        # Adding field 'Request.viewed'
+        db.add_column(u'hello_request', 'viewed',
+                      self.gf('django.db.models.fields.BooleanField')(default=False),
+                      keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting model 'Request'
-        db.delete_table(u'hello_request')
+        # Deleting field 'Request.viewed'
+        db.delete_column(u'hello_request', 'viewed')
 
 
     models = {
@@ -45,7 +39,8 @@ class Migration(SchemaMigration):
             'path': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'request_method': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'server_protocol': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'status_code': ('django.db.models.fields.IntegerField', [], {'max_length': '10'})
+            'status_code': ('django.db.models.fields.IntegerField', [], {'max_length': '10'}),
+            'viewed': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
         }
     }
 
