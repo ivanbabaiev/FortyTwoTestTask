@@ -18,7 +18,7 @@ function sendAjax() {
      })
      .always(function() {
         if (!active) {
-            repeatAjax = setTimeout(sendAjax, 5000);
+            repeatAjax = setTimeout(sendAjax, 1000);
         }
      });
 }
@@ -35,5 +35,3 @@ $(window).blur(function(){
     $.getJSON('requests_json', {window_state:'inactive'});
     sendAjax();
 });
-
-

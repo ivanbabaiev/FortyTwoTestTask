@@ -34,3 +34,13 @@ class Request(models.Model):
 
     class Meta:
         ordering = ['date_time']
+
+    def __str__(self):
+        date_time = self.date_time.strftime('Date: %d-%m-%Y '
+                                            '--- Time: %I:%M:%S')
+        return "%s --- Method: '%s' --- Status: %s --- Protocol: %s" \
+               " --- Path: \" %s \" " % (date_time,
+                                         self.request_method,
+                                         self.status_code,
+                                         self.server_protocol,
+                                         self.path, )
