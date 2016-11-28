@@ -1,4 +1,3 @@
-/db.sqlite3
 *.pyc
 *.pyo
 *.swp
@@ -11,7 +10,5 @@
 git_ignore
 build
 .noseids
-media
-static
 *.dat
 .env

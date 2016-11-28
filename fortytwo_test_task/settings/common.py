@@ -29,7 +29,8 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['fifa.pythonanywhere.com']
+# ALLOWED_HOSTS = ['fifa.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

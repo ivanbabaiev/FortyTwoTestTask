@@ -1,0 +1,43 @@
+.FortyTwo-logo {
+    text-align: center;
+}
+
+/* Отступ сверху для содержимого body */
+
+body {
+    padding-top: 20px;
+}
+
+hr {
+    border-width: 2px 0;
+    margin: 20px 0;
+    width: 80%;
+    border-top-style: solid;
+}
+
+.table-size {
+    width: 50% ;
+}
+
+.table-body {
+    text-align: center;
+}
+
+.table-width {
+    width: 500px;
+}
+
+thead {
+    text-align: center;
+    font-weight: bold;
+    background-color: #bcb895;
+}
+
+table {
+    background: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
