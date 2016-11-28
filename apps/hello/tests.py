@@ -60,6 +60,14 @@ class IndexListTest(TestCase):
         self.assertNotContains(response, self.person_two.name, status_code=200)
         self.assertNotContains(response, self.person_two.surname)
 
+    def test_title_request_page(self):
+        """
+        test for correct title on request.html
+        """
+        Request.objects.all().delete()
+        response = self.client.get(reverse('requests'))
+        self.assertEqual(response.status_code, 200)
+
 
 class MiddlewareTest(TestCase):
     """

@@ -16,6 +16,7 @@ class Migration(SchemaMigration):
             ('server_protocol', self.gf('django.db.models.fields.CharField')(max_length=50)),
             ('request_method', self.gf('django.db.models.fields.CharField')(max_length=50)),
             ('status_code', self.gf('django.db.models.fields.IntegerField')(max_length=10)),
+            ('viewed', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal(u'hello', ['Request'])
 
@@ -45,7 +46,8 @@ class Migration(SchemaMigration):
             'path': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'request_method': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'server_protocol': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'status_code': ('django.db.models.fields.IntegerField', [], {'max_length': '10'})
+            'status_code': ('django.db.models.fields.IntegerField', [], {'max_length': '10'}),
+            'viewed': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
         }
     }
 

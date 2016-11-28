@@ -30,6 +30,17 @@ class Request(models.Model):
     server_protocol = models.CharField(max_length=50)
     request_method = models.CharField(max_length=50)
     status_code = models.IntegerField(max_length=10)
+    viewed = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['date_time']
+
+    def __str__(self):
+        date_time = self.date_time.strftime('Date: %d-%m-%Y '
+                                            '--- Time: %I:%M:%S')
+        return "%s --- Method: '%s' --- Status: %s --- Protocol: %s" \
+               " --- Path: \" %s \" " % (date_time,
+                                         self.request_method,
+                                         self.status_code,
+                                         self.server_protocol,
+                                         self.path, )

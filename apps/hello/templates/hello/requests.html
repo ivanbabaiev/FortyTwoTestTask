@@ -4,48 +4,24 @@
 {% load staticfiles %}
 
 
-{% block title %}Request list{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block active_main %}active{% endblock active_main %}
 
 
+{% block extra_head %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="static/js/requests.js"></script>
+{% endblock extra_head %}
+
+
 {% block content %}
-  <div class="row marketing">
-    <div class="col-lg-12">
-      <div class="navbar">
-        <h3 style="text-align: center; font-weight: bold">Request list</h3>
-        <div class="navbar-inner">
-          <div class="container-fluid">
-            <table class="table table-striped table-bordered" border="1" cellpadding="4">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Date & time</th>
-                  <th>Path</th>
-                  <th>Protocol</th>
-                  <th>Request method</th>
-                  <th>Status code page</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for req in requests %}
-                  <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ req.date_time }}</td>
-                    <td>{{ req.path }}</td>
-                    <td>{{ req.server_protocol }}</td>
-                    <td>{{ req.request_method }}</td>
-                    <td>{{ req.status_code }}</td>
-                  </tr>
-                {% empty %}
-                  The database contains no records
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<h3 style="text-align: center; font-weight: bold">Request list</h3>
+<hr/>
+<div id="requests_list">
+  {% for req in requests %}
+    <p>{{ req }}</p>
+  {% endfor %}
+</div>
 {% endblock content %}
